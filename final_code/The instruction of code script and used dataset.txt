@@ -1,0 +1,43 @@
+# The instruction of code script 
+
+## Data preparation 
+1. cbirds_filteredleaning original dataset from ebirds dataset
+canterbury_birds.ipynb ===> cbirds_filtered.csv
+[used dataset]
+ebd_NZ-CAN_202301_202312_smp_relAug-2024_sampling.txt
+  |_ birds_canterbury.csv
+
+2. Join the grid data with the filtered bird dataset and clip the grid data to cantebury region
+join_data.ipynb ==> cbirds_grid.gpkg
+[used dataset]
+  |_ statsnz-new-zealand-grid-1-kilometre-2023-SHP.zip
+  |_ statsnz-regional-council-2023-clipped-generalised-SHP.zip
+  |_ grid_1km_canterbury.shp
+  |_ cbirds_filtered.csv
+
+3. Extract the landsurface day temperature from the stalelite data, clip it to cantebury region and calucate the average temperature;
+average_temp_new.ipynb ===> cantburry_average_temp_1.tif
+[used dataset]
+  |_ cantbury_region.shp
+  |_ grid_1km_canterbury.shp
+
+## Autocorrlation and hotspots analysis
+4.a Migratory birds 
+migratory_hotspots_final.ipynb 
+[used dataset]
+  |_ territorial-authority-2021-generalised.gpkg
+  |_ cbirds_grid.gpkg
+  |_ cbirds_filtered.csv
+  |_ cantburry_average_temp_1.tif
+  |_ Canterbury_Coastal_Wetland_Vegetation___habitats.zip
+  |_ Native_Bird_River_and_Open_Water_Habitat.zip
+
+4.b native birds 
+Native_hotspots_final.ipynb 
+[used dataset]
+  |_ territorial-authority-2021-generalised.gpkg
+  |_ cbirds_grid.gpkg
+  |_ cbirds_filtered.csv
+  |_ cantburry_average_temp_1.tif
+  |_ Canterbury_Coastal_Wetland_Vegetation___habitats.zip
+  |_ Native_Bird_River_and_Open_Water_Habitat.zip
